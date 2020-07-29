@@ -1,0 +1,12 @@
+apiVersion: skaffold/v1
+kind: Config
+build:
+  artifacts:
+    - image: albertoimpl/hello-world-python
+      buildpack:
+        builder: "gcr.io/buildpacks/builder:v1"
+
+deploy:
+  kubectl:
+    manifests:
+      - k8s/*.yaml
