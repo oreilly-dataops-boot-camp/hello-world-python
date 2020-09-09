@@ -1,13 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    app: myapp
-  name: myapp
+  name: myapp-service
 spec:
-  ports:
-    - port: 5000
-      protocol: TCP
-      targetPort: 5000
+  type: ClusterIP
   selector:
-    app: myapp
+    name: myapp
+  ports:
+  - port: 5000
+    targetPort: 5000
